@@ -1,27 +1,31 @@
-# cc-portal-bot
-Ein Selenium-basiertes Python-Automatisierungsskript, das sich zu bestimmten Zeiten in eine Webseite einloggt und je nach Tageszeit entweder 'Kommen' oder 'Gehen' Aktionen durchführt, mit einer integrierten Log-Funktion zur Aufzeichnung dieser Aktivitäten.
+# Selenium Webseiten-Automatisierung
 
-# Webseiten-Automatisierung mit Selenium
+Dieses Python-Skript verwendet Selenium, um automatisierte Interaktionen auf einer spezifischen Webseite durchzuführen. Es loggt sich in die Webseite ein, navigiert zu einer Unterseite, und führt Aktionen basierend auf Button-Werten durch.
 
-Dieses Repository enthält ein Python-Skript, das Selenium verwendet, um sich automatisch zu bestimmten Zeiten in eine Webseite einzuloggen und je nach Tageszeit entweder 'Kommen' oder 'Gehen' Aktionen durchzuführen. Es protokolliert diese Aktivitäten in einer Log-Datei.
+## Funktionsweise
 
-## Funktionen
+Das Skript folgt diesen Schritten:
 
-- **Automatisches Einloggen**: Loggt sich zu vordefinierten Zeiten automatisch in eine Webseite ein.
-- **Durchführen spezifischer Aktionen**: Führt basierend auf der aktuellen Uhrzeit die Aktionen 'Kommen' oder 'Gehen' durch.
-- **Log-Funktion**: Protokolliert alle durchgeführten Aktionen mit Zeitstempeln in einer Datei.
+1. **Initialisierung des Webdrivers**: Es wird ein WebDriver für Chrome initialisiert, der für die Interaktion mit dem Browser erforderlich ist.
 
-## Voraussetzungen
+2. **Seite Öffnen**: Das Skript öffnet die Login-Seite der Zielwebseite.
 
-Bevor Sie dieses Skript verwenden, stellen Sie sicher, dass Sie Folgendes installiert haben:
+3. **Benutzeranmeldung**: Es füllt die Anmeldefelder für Benutzername und Passwort aus und klickt auf den Login-Button. Hierbei müssen die Platzhalter `XXXXXXXX` durch die tatsächlichen Anmeldedaten ersetzt werden.
 
-- Python 3.x
-- Selenium
-- Ein kompatibler Webdriver (z.B. Chromedriver)
+4. **Navigation**: Nach dem Login navigiert das Skript zu einer spezifischen Unterseite.
 
-## Installation
+5. **Interaktion mit dem Dialogfenster**: Das Skript versucht, einen Button zum Öffnen eines Dialogfensters zu klicken und wartet dann, bis dieses sichtbar wird.
 
-Klonen Sie das Repository mit:
+6. **Button-Aktionen**: Es sucht nach Buttons mit spezifischen Werten ('Kommen' oder 'Gehen') und klickt auf den ersten gefundenen Button dieser Kriterien.
 
-```bash
-git clone [URL des Repositories]
+7. **Protokollierung**: Jede ausgeführte Aktion (Klicken eines Buttons) wird mit einem Zeitstempel in eine Log-Datei geschrieben.
+
+8. **Fehlerbehandlung**: Bei Fehlern oder wenn kein passender Button gefunden wird, beendet das Skript seine Ausführung und gibt eine Fehlermeldung aus.
+
+## Hinweis zur Anpassung
+
+Es ist wichtig, die Platzhalter `XXXXXXXX` für Benutzername und Passwort im Skript durch tatsächliche Anmeldedaten zu ersetzen. Andernfalls kann sich das Skript nicht erfolgreich auf der Webseite anmelden.
+
+## Lizenz
+
+Dieses Projekt ist unter der MIT Lizenz lizenziert.
